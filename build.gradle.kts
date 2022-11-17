@@ -16,7 +16,7 @@ var koin_version = "3.1.6"
 dependencies {
     implementation("com.rabbitmq:amqp-client:5.16.0")
     implementation("io.insert-koin:koin-core:$koin_version")
-    testImplementation ("io.insert-koin:koin-test:$koin_version")
+    testImplementation("io.insert-koin:koin-test:$koin_version")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 
     testImplementation(kotlin("test"))

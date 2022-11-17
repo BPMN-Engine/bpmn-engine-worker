@@ -1,17 +1,15 @@
 package engine.process_manager.runners
 
 
- import org.koin.core.component.inject
 import tasks.Task
 import tasks.implementations.ServiceTask
-import java.util.concurrent.Flow
 
 
 object TaskRunnerFactory {
     fun createFromTask(task: Task): TaskRunner {
         return when (task) {
             is ServiceTask -> ServiceTaskRunner(task = task)
-             else -> UnimplementedTaskRunner(task = task)
+            else -> UnimplementedTaskRunner(task = task)
 //            else -> throw NotImplementedError("Not implemented for $task")
         }
     }
@@ -22,7 +20,7 @@ object TaskRunnerFactory {
 }
 
 
-interface TaskRunner   {
+interface TaskRunner {
     val task: Task
     suspend fun run()
 }
@@ -30,7 +28,7 @@ interface TaskRunner   {
 
 class UnimplementedTaskRunner(override val task: Task) : TaskRunner {
 
-     override suspend fun run() {
+    override suspend fun run() {
 
     }
 
@@ -40,9 +38,7 @@ class UnimplementedTaskRunner(override val task: Task) : TaskRunner {
 
 class ServiceTaskRunner(override val task: ServiceTask) : TaskRunner {
 
-     override suspend fun run() {
-
-
+    override suspend fun run() {
 
 
     }
